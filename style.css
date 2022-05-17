@@ -1,0 +1,65 @@
+/* Defining colours */ 
+
+:root {
+    --primary-color: #225111e1;
+    --secondary-color: linear-gradient(135deg,rgb(185, 148, 14), rgb(230, 236, 52), rgba(232, 96, 12, 0.339));
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    border: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+}
+
+.clock {
+    padding: .75em;
+    background-color: var(--primary-color);
+    border-radius: .6em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+    position: relative;
+    color: transparent;
+}
+
+.clock span {
+    background-image: linear-gradient(135deg,rgb(185, 148, 14), rgb(230, 236, 52), rgba(232, 96, 12, 0.339));
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.clock::before, .clock::after{
+    content: "";
+    display: block;
+    width: 108%; /* just to see color */
+    height: 120%; /* just to see color in relation with 'top' and 'left' below */
+    background-image: linear-gradient(135deg,rgb(185, 148, 14), rgb(230, 236, 52), rgba(232, 96, 12, 0.339));
+    position: absolute;
+    top: -10%;
+    left: -4%;
+    z-index: -1;
+    border-radius: .6em;
+}
+
+.clock::after {
+    filter: blur(5px);
+}
+
+.clock:hover {
+    color: var(--primary-color);
+    transform: perspective(1000px);
+    transform-style: preserve-3d;
+}
